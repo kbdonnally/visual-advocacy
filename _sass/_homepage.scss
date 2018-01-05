@@ -2,9 +2,36 @@
 	box-sizing: border-box;
 }
 
-body {
+html, body {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	height: 100%;
+	font-family: "Raleway", sans-serif;
+	font-size: 1rem;
+}
+
+.home-grid-container {
+	position: relative;
+	display: grid;
+	grid-template-areas: "landing"
+						 "links"
+						 "explainer"
+						 "goto";
+
+}
+
+.home-grid-landing {
+	grid-area: landing;
+}
+
+.home-grid-links {
+	grid-area: links;
+}
+
+.home-grid-explainer {
+	grid-area: explainer;
+}
+
+.home-grid-goto {
+	grid-area: goto;
 }
