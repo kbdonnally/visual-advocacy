@@ -17,21 +17,26 @@ html, body {
 						 "links"
 						 "explainer"
 						 "goto";
-
+	grid-auto-rows: minmax(25vh, auto);
+	font-family: "Raleway", sans-serif;
 }
 
 .home-grid-landing {
 	grid-area: landing;
+	background-color: lightpink;
 }
 
 .home-grid-links {
 	grid-area: links;
+	background-color: lightblue;
 }
 
 .home-grid-explainer {
 	grid-area: explainer;
+	background-color: lightgreen;
 }
 
 .home-grid-goto {
 	grid-area: goto;
+	background-color: lightyellow;
 }
