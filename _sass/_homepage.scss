@@ -47,6 +47,7 @@ html, body {
 	position: relative;
 	display: flex;
 	height: calc(100vh + 100px);
+	/* gradient: electric blue to palatinate blue */
 	background-image: linear-gradient(to right, hsla(182, 100%, 65%, .7) -30%, hsla(238, 100%, 50%, .7)), linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3)), url("img/noisy-grid-big.png");
 	background-position: auto, auto, center center;
 	
@@ -126,8 +127,11 @@ html, body {
 
 .home-explainer__title {
 	position: relative;
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
+	font-weight: bold;
 	font-size: 2rem;
+	text-align: center;
+	text-transform: uppercase;
 	color: white;
 	border: 2px solid white;
 }
@@ -156,6 +160,10 @@ html, body {
 .home-grid-examples {
 	grid-area: examples;
 }
+
+/**
+ * Temporary
+ */
 
 header {
 	display: none !important;
