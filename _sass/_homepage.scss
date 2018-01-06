@@ -1,3 +1,9 @@
+/**
+ * Palette in HSL
+ * Credit: generated via Coolers
+ */
+
+
 * {
 	box-sizing: border-box;
 }
@@ -17,7 +23,6 @@ html, body {
 						 "links"
 						 "explainer"
 						 "goto";
-	grid-auto-rows: minmax(25vh, auto);
 	font-family: "Raleway", sans-serif;
 }
 
@@ -25,13 +30,23 @@ html, body {
  * Landing page
  */
 
+ $red-purple: 		hsla(333, 100%, 45%, 1);
+ $electric-blue:	hsla(182, 88%, 65%, 1);
+ $deep-cyan: 		hsla(172, 71%, 25%, 1);
+ $palatinate-blue: 	hsla(238, 100%, 60%, 1);
+ $onyx: 			hsla(223, 15%, 24%, 1);
+ $rich-black: 		hsla(197, 94%, 6%, 1);
+ $hollywood-cerise: hsla(319, 100%, 44%, 1); // platonic ideal magenta
+ $majorelle-blue:	hsla(253, 81%, 58%, 1);
+ 
+
 .home-grid-landing {
 	/* Image credit: subtlepatterns.com */
 	grid-area: landing;
 	position: relative;
 	display: flex;
 	height: calc(100vh + 100px);
-	background-image: linear-gradient(to right, hsla(170, 100%, 60%, .7) -30%, hsla(240, 100%, 50%, .7)), linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3)), url("img/noisy-grid-big.png");
+	background-image: linear-gradient(to right, hsla(182, 100%, 65%, .7) -30%, hsla(238, 100%, 50%, .7)), linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3)), url("img/noisy-grid-big.png");
 	background-position: auto, auto, center center;
 	
 }
@@ -76,6 +91,7 @@ html, body {
 		padding: 0 8.33%;
 		justify-content: space-between;
 	}
+	display: none;
 }
 
 .home-link__wrapper {
@@ -83,7 +99,7 @@ html, body {
 	height: 200px;
 	width: 200px;
 	border-radius: 50%;
-	background-color: hsl(0, 0, 20%);
+	background-color: #353A47;
 	transform: translate(0, -50%);
 }
 
@@ -92,12 +108,36 @@ html, body {
 	line-height: 200px;
 	text-align: center;
 	font-weight: bold;
+	color: hsla(182, 100%, 65%, 1);
 }
+
+/**
+ * Explainer
+ */
 
 .home-grid-explainer {
 	grid-area: explainer;
-	background-color: lightgreen;
+	background-color: $onyx;
+	@media screen and (min-width: 600px) {
+		padding: 0 8.33%;
+	}
 }
+
+.home-explainer__title {
+	position: relative;
+	font-family: "Roboto", sans-serif;
+	font-size: 2rem;
+	color: white;
+	border: 2px solid white;
+}
+
+.home-explainer__text {
+	color: hsla(182, 100%, 75%, 1);
+}
+
+/**
+ * More links (may change)
+ */
 
 .home-grid-goto {
 	grid-area: goto;
