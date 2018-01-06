@@ -22,7 +22,8 @@ html, body {
 	grid-template-areas: "landing"
 						 "links"
 						 "explainer"
-						 "goto";
+						 "timeline"
+						 "examples";
 	font-family: "Raleway", sans-serif;
 }
 
@@ -136,12 +137,24 @@ html, body {
 }
 
 /**
- * More links (may change)
+ * Timeline
  */
 
-.home-grid-goto {
-	grid-area: goto;
+.home-grid-timeline {
+	grid-area: timeline;
 	background-color: lightyellow;
+}
+
+.home-timeline__title {
+
+}
+
+.home-timeline__line-wrapper {
+
+}
+
+.home-grid-examples {
+	grid-area: examples;
 }
 
 header {
