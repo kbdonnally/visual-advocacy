@@ -224,8 +224,32 @@ html, body {
 
 }
 
+/**
+ * Examples
+ */
+
 .home-grid-examples {
 	grid-area: examples;
+}
+
+.home-examples__title {
+
+}
+
+.home-examples__btns {
+
+}
+
+[class*="home-examples__btn--"] {
+	color: red;
+}
+
+.home-examples__content {
+
+}
+
+[class*="home-examples__example--"] {
+	color: purple;
 }
 
 /**
