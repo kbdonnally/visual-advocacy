@@ -19,8 +19,9 @@ html, body {
 .home-grid-container {
 	position: relative;
 	display: grid;
+	grid-template-rows: 100vh auto auto auto;
 	grid-template-areas: "landing"
-						 "links"
+					//	 "links"
 						 "explainer"
 						 "timeline"
 						 "examples";
@@ -46,10 +47,15 @@ html, body {
 	grid-area: landing;
 	position: relative;
 	display: flex;
-	height: calc(100vh + 100px);
+	flex-flow: column nowrap;
+	justify-content: space-around;
+//	min-height: 100vh;
 	/* gradient: electric blue to palatinate blue */
 	background-image: linear-gradient(to right, hsla(182, 100%, 65%, .7) -30%, hsla(238, 100%, 50%, .7)), linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3)), url("img/noisy-grid-big.png");
 	background-position: auto, auto, center center;
+	@media screen and (min-width: 1200px) {
+		justify-content: space-between;
+	}
 	
 }
 
@@ -57,11 +63,13 @@ html, body {
 	position: relative;
 	font-family: "Playfair Display", serif;
 	font-weight: 900;
-	font-size: 3rem;
+	font-size: 4rem;
 	line-height: 1;
 	color: white;
-	margin-left: 25%;
-	margin-top: 1.5em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1em;
+	margin-bottom: 1em;
 	@media screen and (min-width: 400px) {
 		font-size: 4rem;
 	}
@@ -70,9 +78,11 @@ html, body {
 	}
 	@media screen and (min-width: 768px) {
 		font-size: 6rem;
+		margin-left: 25%;
+		margin-right: initial;
 	}
-	@media screen and (min-width: 1024px) {
-		font-size: 7rem;
+	@media screen and (min-width: 900px) {
+		font-size: 7.5rem;
 	}
 	@media screen and (min-width: 1200px) {
 		font-size: 8rem;
@@ -85,32 +95,72 @@ html, body {
 
 .home-grid-links {
 	grid-area: links;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	background-color: white;
-	@media screen and (min-width: 1024px) {
-		padding: 0 8.33%;
-		justify-content: space-between;
-	}
-	display: none;
-}
-
-.home-link__wrapper {
 	position: relative;
-	height: 200px;
-	width: 200px;
-	border-radius: 50%;
-	background-color: #353A47;
-	transform: translate(0, -50%);
+	margin: 0 16px;
+	@media screen and (min-width: 400px) {
+		margin: 0 4.167%;	
+	}
+	@media screen and (min-width: 600px) {
+		margin: 0 8.33%;
+	}
+	@media screen and (min-width: 768px) {
+		margin: 0;
+	}
+	@media screen and (min-width: 1024px) {
+		margin: 0 8.33%;
+	}
 }
 
-.home-link__link {
+.home-links__wrapper {
+	width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	justify-content: space-around;
+}
+
+.home-links__link {
+	position: relative;
 	display: block;
-	line-height: 200px;
-	text-align: center;
+	width: 120px;
+	padding: .25em .5em;
+	margin: 0 60px;
+	margin-bottom: 1em;
+	font-family: "Open Sans", sans-serif;
 	font-weight: bold;
-	color: hsla(182, 100%, 65%, 1);
+	font-size: 1.625rem;
+	line-height: 1;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white !important;
+	border: 1px solid white;
+	transition: color .2s, border-color .2s;
+	&:nth-of-type(2n) {
+		justify-self: end;
+	}
+	&:hover {
+		text-decoration: none !important;
+		color: $hollywood-cerise !important;
+		border-color: $hollywood-cerise; // hsl(340, 100%, 50%); //$onyx;
+	//	opacity: .7;
+
+	}
+	@media screen and (min-width: 400px) {
+		justify-self: center !important;
+	}
+	@media screen and (min-width: 768px) {
+		font-size: 1.75rem;
+		width: 130px;
+	//	margin: 0 30px 1em 30px;
+		margin-bottom: 2em;
+	}
+
+	@media screen and (min-width: 1024px) {
+		width: 150px;
+		font-size: 2rem;
+		margin: 0 calc(150px / 3);
+		margin-bottom: 3em;
+	}
 }
 
 /**
@@ -119,25 +169,42 @@ html, body {
 
 .home-grid-explainer {
 	grid-area: explainer;
-	background-color: $onyx;
+	background-color: hsla(223, 15%, 20%, 1); //$onyx;
+	padding: 0 4px;
+	@media screen and (min-width: 400px) {
+		padding: 0 4.167%;
+	}
 	@media screen and (min-width: 600px) {
 		padding: 0 8.33%;
 	}
 }
 
+.home-explainer__content-wrapper {
+	position: relative;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 .home-explainer__title {
 	position: relative;
+	display: inline-block;
+	padding: .25em .5em;
+	margin-top: calc(1.5rem + 6px);
 	font-family: "Open Sans", sans-serif;
 	font-weight: bold;
 	font-size: 2rem;
+	line-height: 1;
 	text-align: center;
 	text-transform: uppercase;
 	color: white;
-	border: 2px solid white;
+	border: 3px solid white;
 }
 
 .home-explainer__text {
+	font-size: 1.25rem;
+//	font-weight: bold;
 	color: hsla(182, 100%, 75%, 1);
+	line-height: 1.5;
 }
 
 /**
