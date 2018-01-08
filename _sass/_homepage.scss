@@ -49,10 +49,9 @@ html, body {
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-around;
-//	min-height: 100vh;
-	/* gradient: electric blue to palatinate blue */
-	background-image: linear-gradient(to right, hsla(182, 100%, 65%, .7) -30%, hsla(238, 100%, 50%, .7)), linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3)), url("img/noisy-grid-big.png");
-	background-position: auto, auto, center center;
+	background-color: #fc466b;
+  	background-image: -webkit-linear-gradient(to left, #fc466b, #3f5efb);
+  	background-image: linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1)); // url("img/noisy-grid-big.png"), linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1));
 	@media screen and (min-width: 1200px) {
 		justify-content: space-between;
 	}
