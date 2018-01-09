@@ -43,32 +43,34 @@ html, body {
  
 
 .home-grid-landing {
-	/* Image credit: subtlepatterns.com */
 	grid-area: landing;
 	position: relative;
 	display: flex;
-	flex-flow: column nowrap;
-	justify-content: space-around;
-	background-color: #fc466b;
+	justify-content: space-between;
+//	background-color: #fc466b;
   	background-image: -webkit-linear-gradient(to left, #fc466b, #3f5efb);
-  	background-image: linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1)); // url("img/noisy-grid-big.png"), linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1));
-	@media screen and (min-width: 1200px) {
-		justify-content: space-between;
+  	background-image: linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1));
+	@media screen and (min-width: 1024px) {
+		align-items: center;
 	}
 	
 }
 
 .home-landing__title {
 	position: relative;
-	font-family: "Playfair Display", serif;
-	font-weight: 900;
+//	height: 2em;
+	font-family: "Raleway", sans-serif;
+	font-weight: bold;
 	font-size: 4rem;
-	line-height: 1;
-	color: white;
+	line-height: .9;
+//	text-transform: uppercase;
+/*	color: transparent;
+	background-image: linear-gradient(to left, rgba(252, 70, 107, 1), rgba(63, 94, 251, 1));
+	-webkit-background-clip: text;
+	background-clip: text; */
+	color: rgba(255,255,255,.9);
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 1em;
-	margin-bottom: 1em;
 	@media screen and (min-width: 400px) {
 		font-size: 4rem;
 	}
@@ -77,89 +79,90 @@ html, body {
 	}
 	@media screen and (min-width: 768px) {
 		font-size: 6rem;
-		margin-left: 25%;
+		align-self: flex-start;
+		margin-top: 8.33vw;
+		margin-left: 8.33%;
 		margin-right: initial;
-	}
-	@media screen and (min-width: 900px) {
-		font-size: 7.5rem;
+		padding-top: 12px;
 	}
 	@media screen and (min-width: 1200px) {
-		font-size: 8rem;
+		font-size: 7rem;
 	}
 }
 
-/**
- * Links to elsewhere in site
- */
-
-.home-grid-links {
-	grid-area: links;
+.home-landing__nav {
 	position: relative;
-	margin: 0 16px;
-	@media screen and (min-width: 400px) {
-		margin: 0 4.167%;	
-	}
-	@media screen and (min-width: 600px) {
-		margin: 0 8.33%;
-	}
-	@media screen and (min-width: 768px) {
-		margin: 0;
-	}
-	@media screen and (min-width: 1024px) {
-		margin: 0 8.33%;
-	}
-}
-
-.home-links__wrapper {
-	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-	justify-content: space-around;
+	grid-template-rows: repeat(4, 1fr);
+	align-items: space-between;
+	width: 33.33%;
+	height: 80vh;
 }
 
-.home-links__link {
-	position: relative;
+.home-nav__link {
 	display: block;
-	width: 120px;
-	padding: .25em .5em;
-	margin: 0 60px;
-	margin-bottom: 1em;
+	position: relative;
+	height: 100%;
 	font-family: "Montserrat", sans-serif;
 	font-weight: 200;
-	font-size: 1.625rem;
-	line-height: 1;
-	text-align: center;
-	text-transform: uppercase;
+	font-size: 1.5rem;
+	line-height: .9;
 	text-decoration: none;
-	color: black !important;
-	border: 1px solid black;
-	transition: color .2s, border-color .2s;
-	&:nth-of-type(2n) {
-		justify-self: end;
+	text-align: right;
+	text-transform: uppercase;
+	color: white;
+	transition: color .2s;
+	&:nth-of-type(1) {
+		span {
+			width: 130%;
+			text-align: center;
+		}
 	}
-	&:hover {
-		text-decoration: none !important;
-		color: $hollywood-cerise !important;
-		border-color: $hollywood-cerise; // hsl(340, 100%, 50%); //$onyx;
-	//	opacity: .7;
-
+	&:nth-of-type(2) {
+		span {
+			width: 100%;
+			text-align: center;
+		}
 	}
-	@media screen and (min-width: 400px) {
-		justify-self: center !important;
+	&:nth-of-type(3) {
+		span {
+			width: 130%;
+			text-align: left;
+			padding-left: 1.5em;
+		}
+	}
+	&:nth-of-type(4) {
+		span {
+			width: 160%;
+			text-align: center;
+			padding-left: 1.5em;
+		}
+	}
+	span {
+		position: absolute;
+		display: block;
+		width: 100%;
+		right: 0;
+		bottom: 50%;
+		transform: translate(0, 50%);
+		&::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			display: block;
+			height: 1px;
+			width: 100%;
+			background-color: rgba(63, 94, 251, 1); // white;
+		//	transform: translate(0, -11px);
+		}
+	}
+	&:hover, &:focus {
+		color: rgba(63, 94, 251, 1);
 	}
 	@media screen and (min-width: 768px) {
-		font-size: 1.75rem;
-		width: 130px;
-	//	margin: 0 30px 1em 30px;
-		margin-bottom: 2em;
-		margin-top: 2em;
-	}
-
-	@media screen and (min-width: 1024px) {
-		width: 150px;
 		font-size: 2rem;
-		margin: 2em calc(150px / 3);
-	//	margin-bottom: 3em;
+	//	height: 3.5rem;
 	}
 }
 
@@ -169,7 +172,7 @@ html, body {
 
 .home-grid-explainer {
 	grid-area: explainer;
-	background-color: hsla(223, 15%, 20%, 1); //$onyx;
+	background-image: linear-gradient(to bottom, rgba(239, 168, 184, 1), rgba(239, 168, 184, .8) 75%, white);
 	padding: 0 4px;
 	@media screen and (min-width: 400px) {
 		padding: 0 4.167%;
@@ -203,7 +206,7 @@ html, body {
 .home-explainer__text {
 	font-size: 1.25rem;
 //	font-weight: bold;
-	color: hsla(182, 100%, 75%, 1);
+	color: #30323D; // hsla(182, 100%, 75%, 1);
 	line-height: 1.5;
 }
 
@@ -213,13 +216,14 @@ html, body {
 
 .home-grid-timeline {
 	grid-area: timeline;
-	background-color: black;
+	background-color: black; //rgba(63, 94, 251, 1);
+	display: none;
 }
 
 .home-timeline__title {
-	font-size: 2rem;
 	font-family: "Playfair Display", serif;
 	font-weight: 900;
+	color: transparent;
 }
 
 .home-timeline__line-wrapper {
@@ -247,11 +251,12 @@ html, body {
 .home-examples__title {
 	grid-area: title;
 	position: relative;
+	font-family: "Bungee", serif;
 	font-size: 2rem;
-	font-family: "Playfair Display", serif;
-	font-weight: 900;
+//	font-weight: 900;
 	text-align: center;
 	line-height: 2;
+	color: #6E44FF;
 	div {
 		font-family: "Montserrat", sans-serif;
 		font-size: .5em;
@@ -262,13 +267,15 @@ html, body {
 		line-height: 1;
 		opacity: .5;
 		display: none;
+		color: black;
+	//	color: rgba(63, 94, 251, 1);
 	}
 	@media screen and (min-width: 400px) {
 		font-size: 3rem;
 	}
 	@media screen and (min-width: 650px) {
 		div {
-			display: block;
+	//		display: block;
 		}
 	}
 	@media screen and (min-width: 768px) {
@@ -352,7 +359,7 @@ html, body {
 }
 
 .home-examples__example--1 {
-	border: 2px solid red;
+	background-color: #6E44FF;
 	div {
 	    
 	}
