@@ -16,6 +16,25 @@ html, body {
 	font-size: 1rem;
 }
 
+.home-va-logo {
+	position: fixed;
+	display: block;
+	z-index: 1;
+	height: 40px;
+	margin-top: 20px;
+	margin-left: 20px;
+	opacity: .7;
+	transition: opacity .2s;
+	&:hover, &:focus {
+		opacity: 1;
+	}
+	img {
+		height: 40px;
+		-webkit-filter: invert(100%);
+		filter: invert(100%);
+	}
+}
+
 .home-grid-container {
 	position: relative;
 	display: grid;
@@ -40,7 +59,14 @@ html, body {
  $rich-black: 		hsla(197, 94%, 6%, 1);
  $hollywood-cerise: hsla(319, 100%, 44%, 1); // platonic ideal magenta
  $majorelle-blue:	hsla(253, 81%, 58%, 1);
+
+ $magenta:			#fc00ff;
+ $teal:				#00dbde;
  
+ /**
+  * pink: #fc00ff = rgba(252, 0, 255, 1) = hsla(299, 100%, 50%, 1)
+  * teal: #00dbde = rgba(0, 219, 222, 1) = hsla(181, 100%, 44%, 1)
+  */
 
 .home-grid-landing {
 	grid-area: landing;
@@ -49,7 +75,8 @@ html, body {
 	flex-flow: column;
 	justify-content: center;
  	background-image: -webkit-linear-gradient(to right, #fc00ff, #00dbde);
- 	background-image: linear-gradient(to right, #fc00ff, #00dbde); /* rgb(252, 0, 255), rgb(0, 219, 222) */
+ 	background-image: linear-gradient(to right, #fc00ff, #00dbde); 
+
   	@media screen and (min-width: 768px) {
   		flex-flow: row;
   		align-items: center;
@@ -168,12 +195,12 @@ html, body {
 			display: block;
 			height: 1px;
 			width: 100%;
-			background-color: rgba(63, 94, 251, 1); // white;
+			background-color: $magenta; // rgba(63, 94, 251, 1); // white;
 		//	transform: translate(0, -11px);
 		}
 	}
 	&:hover, &:focus {
-		color: rgba(63, 94, 251, 1);
+		color: $magenta;
 	}
 	@media screen and (min-width: 768px) {
 		font-size: 2rem;
@@ -187,7 +214,7 @@ html, body {
 
 .home-grid-explainer {
 	grid-area: explainer;
-	background-image: linear-gradient(to bottom, rgba(239, 168, 184, 1), rgba(239, 168, 184, .8) 50%, white);
+	background-image: linear-gradient(to bottom, rgb(134, 165, 217), white);
 	padding: 0 4px;
 	@media screen and (min-width: 400px) {
 		padding: 0 4.167%;
@@ -208,21 +235,33 @@ html, body {
 	display: inline-block;
 	padding: .25em .5em;
 	margin-top: calc(1.5rem + 6px);
-	font-family: "Open Sans", sans-serif;
-	font-weight: bold;
+	font-family: "casablanca-urw", sans-serif;
+	font-weight: 700;
 	font-size: 2rem;
 	line-height: 1;
 	text-align: center;
 	text-transform: uppercase;
 	color: white;
-	border: 3px solid white;
+//	border: 3px solid white;
 }
 
 .home-explainer__text {
-	font-size: 1.25rem;
-//	font-weight: bold;
-	color: #30323D; // hsla(182, 100%, 75%, 1);
+	margin-top: 2em;
+	font-size: 1rem;
+	color: rgb(32, 42, 37);
 	line-height: 1.5;
+	.explainer-highlight {
+		color: white;
+		font-weight: bold;
+		font-size: 1.5em;
+		line-height: 1.15;
+		em, span {
+			color: $magenta;
+		}
+	}
+	@media screen and (min-width: 600px) {
+		font-size: 1.25rem;
+	}
 }
 
 /**
@@ -261,6 +300,7 @@ html, body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	background-color: $onyx;
 }
 
 .home-examples__title {
@@ -272,9 +312,10 @@ html, body {
 	font-size: 2rem;
 	text-transform: uppercase;
 	text-align: center;
-	line-height: 2;
-	color: rgba(63, 94, 251, 1);
-	div {
+	color: $teal; // white;
+	margin-top: 1em;
+	line-height: 1;
+	span {
 		font-family: "Montserrat", sans-serif;
 		font-size: .5em;
 		font-weight: 200;
@@ -284,15 +325,15 @@ html, body {
 		line-height: 1;
 		opacity: .5;
 		display: none;
-		color: black;
+		color: white;
 	//	color: rgba(63, 94, 251, 1);
 	}
 	@media screen and (min-width: 400px) {
 		font-size: 3rem;
 	}
 	@media screen and (min-width: 650px) {
-		div {
-	//		display: block;
+		span {
+			display: block;
 		}
 	}
 	@media screen and (min-width: 768px) {
@@ -316,20 +357,21 @@ html, body {
 	flex-flow: row wrap;
 	justify-content: center;
 	align-items: flex-end;
-	margin: 0 8.33%;
+	margin: 0 4.167%;
 }
 
 [class*="home-examples__btn--"] {
 	display: inline-block;
-	padding: .5em .75em;
 	margin: 0 1em;
 	margin-bottom: 1em;
 	font-family: "Raleway", sans-serif;
-	font-size: 1.125rem;
+	font-weight: bold;
+	font-size: 1.25rem;
 	line-height: 1;
 	outline: none;
-	background-color: white;
-	border: 1px solid black;
+	color: $magenta;
+	background-color: transparent;
+	border: 1px solid transparent;
 	transition: color .2s, border-color .2s;
 	&:hover, &:focus {
 		color: $hollywood-cerise;
@@ -372,22 +414,39 @@ html, body {
 [class*="home-examples__example--"] {
 	position: relative;
 	height: 100vh;
-	width: 100%;
+	width: 83.33%;
+	margin: 0 8.33vw;
+	margin-bottom: 8.33vw;
+	color: white;
+	font-family: "Inconsolata", monospace;
+	font-size: 1.25rem;
+	/* temporary: */
+	background-color: rgba(0,0,0,.1);
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	div:first-of-type {
+		color: $magenta;
+		padding: 2em 1em;
+		line-height: 2;
+		text-align: center;
+		font-weight: bold;
+	}
+	ul {
+		padding: 1em;
+		line-height: 1.5;
+	}
 }
 
 .home-examples__example--1 {
-	background-color: rgba(63, 94, 251, .5);
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	
 }
 
 .home-examples__example--2 {
-	border: 2px solid salmon;
 }
 
 .home-examples__example--3 {
-	border: 2px solid lightpink;
 }
 
 /**
